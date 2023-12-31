@@ -9,7 +9,15 @@ def create_app():
         version="2.0",
         openapi_url="/api/v2/openapi.json",
     )
+    origins = ["*"]
 
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
     app.include_router(openai.router, prefix="/open-ai")
     # app.include_router(generate_audio.router, prefix="/audio")
 
