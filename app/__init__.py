@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routers import openai
+from fastapi.middleware.cors import CORSMiddleware
 
 def create_app():
     
